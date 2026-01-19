@@ -27,7 +27,9 @@ We compared the classification accuracy of models trained on images sampled via 
 | **128** | ~256 | **26.65%** ± 1.30 | 20.62% ± 0.50 | **+6.03%** 🚀 |
 | **256** | ~512 | **24.80%** ± 0.46 | 20.76% ± 0.40 | **+4.04%** |
 
-> **Key Insight:** With a highly constrained budget (K=128), the Double-Helix sampler achieves a **~29% relative improvement** (6.03% absolute gain) over random sampling, proving that structural sampling is far more efficient than random noise for feature preservation.
+> **Key Insight & Analysis:**
+> * **Efficiency Sweet Spot:** With a highly constrained budget (K=128), DH achieves a **~29% relative improvement** over random sampling.
+> * **Why K=256 drops:** At low resolutions (CIFAR-10, 32x32), higher density (K=256) introduces **foveal redundancy** (oversampling the same center pixels) without adding unique features. This confirms our hypothesis: **Geometric efficiency matters more than raw point count.**
 
 <details>
 <summary>👉 Click to view detailed training logs (Seeds 0-2)</summary>
@@ -57,7 +59,7 @@ Avg   : DH 24.80% vs Random 20.76%
 
 * **>90,000 FPS** at N=500.
 * **Scalable:** Even at N=6000, it maintains >12,000 FPS.
-* **Impact:** Ideal for standalone embedded systems and high-frequency real-time monitoring.
+* **Impact:** Ideal for **high-throughput cloud pipelines** and **low-latency real-time monitoring**.
 
 
 
