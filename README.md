@@ -2,7 +2,7 @@
 
 > **A tiny, geometry-based visual sampler extracted from my Swarm Intelligence project.**
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK_HERE)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/JackJ-C/double-helix-vision-tool/blob/main/DH.ipynb)
 
  💡 The Concept
 
@@ -40,4 +40,17 @@ This parameter wasn't chosen for file size—it was chosen for **Robotic Focus**
     * The two helices (Alpha & Beta) work together to create **Dynamic Foveation**—prioritizing the center (action) over the background (noise).
 
 **In short:** We aren't trying to *compress* an image; we are simulating a biological eye searching for a target.
+## 🛠️ Quick Start (Local)
 
+If you prefer running this locally instead of Colab:
+
+```bash
+# 1. Clone the repo
+git clone [https://github.com/JackJ-C/double-helix-vision-tool.git](https://github.com/JackJ-C/double-helix-vision-tool.git)
+cd double-helix-vision-tool
+
+# 2. Install dependencies
+pip install -r requirements.txt
+
+# 3. Run the script (Optional)
+# You can use the notebook `DH.ipynb` or run the core script if you have one.
