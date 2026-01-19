@@ -1,32 +1,66 @@
-# Double-Helix Vision (DH) 
+# Double-Helix Vision (DH)
 
-> **A tiny, geometry-based visual sampler extracted from my Swarm Intelligence project.**
-
+> **A tiny, geometry-based visual sampler designed for extreme efficiency.**
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/JackJ-C/double-helix-vision-tool/blob/main/DH.ipynb)
 
- 💡 The Concept
+ ## 💡 The Concept
 
 I built DH to solve a specific problem: **How can AI agents "see" effectively when bandwidth is extremely limited?**
 
 Instead of processing a full 1080p image, DH mimics biological eyes. It uses a **Golden Spiral** to sample the image, focusing high density on the center (Fovea) and low density on the edges (Peripheral).
 
-![DH Architecture](assets/architecture.jpg)
+![DH Concept](assets/What.png)
 *(Figure: Compressing 2D space into a 1D signal using spiral geometry)*
 
-🧪 Minimal Demo (Reproducible)
+## 📊 Experimental Results
 
-This repo contains a clean, fair comparison between **DH** and **Random Sampling**.
-I kept the code minimal so you can review it in < 5 minutes.
+We compared the classification accuracy of models trained on images sampled via Double-Helix vs. Random Sampling.
+* **Metric:** Top-1 Accuracy on validation set (Average of 3 seeds)
+* **Constraint:** Extremely low sampling budget (K points per helix)
+### 1. Visual Trade-off: Focus vs. Coverage
+![Visual Comparison](assets/dragon.png)
+*(Note: DH sacrifices background pixels to maintain high fidelity in the foveal region)*
 
-**The Experiment:**
-* **Budget:** Only 256 pixels allowed (approx. 0.01% of original image).
-* **Task:** Train a classifier using only these pixels.
+### 2. Feature Capture Accuracy (The Data)
+| K (per helix) | Total Points | DH Accuracy (Avg) | Random Accuracy (Avg) | **Gain** |
+| :--- | :--- | :--- | :--- | :--- |
+| **128** | ~256 | **26.65%** ± 1.30 | 20.62% ± 0.50 | **+6.03%** 🚀 |
+| **256** | ~512 | **24.80%** ± 0.46 | 20.76% ± 0.40 | **+4.04%** |
 
-**The Result (Epoch 15):**
-* **Random Sampling:** ~20.4% Accuracy (Stuck)
-* **DH (My Method):** **~27.6% Accuracy** (Learning steadily)
+> **Key Insight:** With a highly constrained budget (K=128), the Double-Helix sampler achieves a **~29% relative improvement** (6.03% absolute gain) over random sampling, proving that structural sampling is far more efficient than random noise for feature preservation.
 
-> **Conclusion:** Geometry matters. Even with just 256 points, structured sampling preserves vital context that random sampling misses.
+<details>
+<summary>👉 Click to view detailed training logs (Seeds 0-2)</summary>
+
+```text
+[Sampler] K(per-helix)=128, total=256
+=== Final Comparison (K=128) ===
+Seed 0: DH 27.58% vs Random 20.44%
+Seed 1: DH 25.16% vs Random 21.19%
+Seed 2: DH 27.20% vs Random 20.23%
+----------------------------------
+Avg   : DH 26.65% vs Random 20.62%
+
+[Sampler] K(per-helix)=256, total=512
+=== Final Comparison (K=256) ===
+Seed 0: DH 24.47% vs Random 20.32%
+Seed 1: DH 25.32% vs Random 20.85%
+Seed 2: DH 24.61% vs Random 21.10%
+----------------------------------
+Avg   : DH 24.80% vs Random 20.76%
+```
+</details>
+
+### 3. Extreme Efficiency
+![Efficiency Data](assets/FPS.png)
+*(Benchmark: Throughput measured on NVIDIA T4 GPU)*
+
+* **>90,000 FPS** at N=500.
+* **Scalable:** Even at N=6000, it maintains >12,000 FPS.
+* **Impact:** Ideal for standalone embedded systems and high-frequency real-time monitoring.
+
+
+
 
 ## 🧠 Design Philosophy: Focus vs. Coverage
 
@@ -46,11 +80,19 @@ If you prefer running this locally instead of Colab:
 
 ```bash
 # 1. Clone the repo
-git clone [https://github.com/JackJ-C/double-helix-vision-tool.git](https://github.com/JackJ-C/double-helix-vision-tool.git)
+git clone https://github.com/JackJ-C/double-helix-vision-tool.git
 cd double-helix-vision-tool
 
 # 2. Install dependencies
 pip install -r requirements.txt
 
-# 3. Run the script (Optional)
-# You can use the notebook `DH.ipynb` or run the core script if you have one.
+# 3. Run the script (optional)
+# You can either run the notebook or a Python script
+# jupyter notebook DH.ipynb
+# or
+# python DH-vision.py
+```
+
+## 📄 License
+
+Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
