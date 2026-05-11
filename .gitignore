@@ -1,0 +1,13 @@
+.venv/
+venv/
+env/
+*.pyc
+__pycache__/
+.DS_Store
+
+# 视频文件（太大，不上传）
+*.MOV
+*.mov
+*.mp4
+*.avi
+*.mkv

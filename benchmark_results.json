@@ -1,0 +1,181 @@
+{
+  "throughput": [
+    {
+      "resolution": "640x480",
+      "dh_fps": 17082.2,
+      "grid_fps": 39095.5,
+      "random_fps": 10160.5,
+      "sample_points": 2894
+    },
+    {
+      "resolution": "1280x720",
+      "dh_fps": 10165.7,
+      "grid_fps": 56124.1,
+      "random_fps": 9842.9,
+      "sample_points": 2894
+    },
+    {
+      "resolution": "1920x1080",
+      "dh_fps": 7483.1,
+      "grid_fps": 55042.8,
+      "random_fps": 10102.2,
+      "sample_points": 2894
+    },
+    {
+      "resolution": "3840x2160",
+      "dh_fps": 4235.3,
+      "grid_fps": 52934.8,
+      "random_fps": 9948.4,
+      "sample_points": 2894
+    }
+  ],
+  "info_density": [
+    {
+      "method": "DH",
+      "entropy": 5.7392,
+      "edge_score": 1.6421,
+      "points": 5788
+    },
+    {
+      "method": "Grid",
+      "entropy": 5.9245,
+      "edge_score": 3.3605,
+      "points": 5776
+    },
+    {
+      "method": "Random",
+      "entropy": 5.9881,
+      "edge_score": 43.9542,
+      "points": 5788
+    }
+  ],
+  "depth_collision": [
+    {
+      "speed": 0.5,
+      "mean_collision": 0.184,
+      "max_collision": 0.674,
+      "motion_correlation": 0.2927
+    },
+    {
+      "speed": 1.0,
+      "mean_collision": 0.216,
+      "max_collision": 0.978,
+      "motion_correlation": 0.6217
+    },
+    {
+      "speed": 2.0,
+      "mean_collision": 0.475,
+      "max_collision": 1.406,
+      "motion_correlation": 0.615
+    },
+    {
+      "speed": 5.0,
+      "mean_collision": 1.002,
+      "max_collision": 3.084,
+      "motion_correlation": 0.7458
+    },
+    {
+      "speed": 10.0,
+      "mean_collision": 1.325,
+      "max_collision": 3.878,
+      "motion_correlation": 0.6719
+    }
+  ],
+  "extreme_lighting": [
+    {
+      "scene": "Pure Black",
+      "motion_detected": "✅ Yes",
+      "mean_signal": 0.461,
+      "max_signal": 0.669
+    },
+    {
+      "scene": "Pure White",
+      "motion_detected": "❌ No",
+      "mean_signal": 0.0,
+      "max_signal": 0.0
+    },
+    {
+      "scene": "Low Light (10)",
+      "motion_detected": "✅ Yes",
+      "mean_signal": 0.461,
+      "max_signal": 0.669
+    },
+    {
+      "scene": "Overexposed (245)",
+      "motion_detected": "❌ No",
+      "mean_signal": 0.058,
+      "max_signal": 0.084
+    },
+    {
+      "scene": "H-Gradient",
+      "motion_detected": "✅ Yes",
+      "mean_signal": 0.695,
+      "max_signal": 0.919
+    },
+    {
+      "scene": "Normal Scene",
+      "motion_detected": "✅ Yes",
+      "mean_signal": 0.481,
+      "max_signal": 0.613
+    }
+  ],
+  "robotics_api": [
+    {
+      "resolution": "640x480",
+      "mean_ms": 0.368,
+      "p50_ms": 0.361,
+      "p99_ms": 0.489,
+      "json_ms": 0.051,
+      "total_ms": 0.419,
+      "effective_fps": 2389.4
+    },
+    {
+      "resolution": "1280x720",
+      "mean_ms": 0.438,
+      "p50_ms": 0.432,
+      "p99_ms": 0.548,
+      "json_ms": 0.05,
+      "total_ms": 0.488,
+      "effective_fps": 2048.3
+    },
+    {
+      "resolution": "1920x1080",
+      "mean_ms": 0.466,
+      "p50_ms": 0.44,
+      "p99_ms": 0.586,
+      "json_ms": 0.052,
+      "total_ms": 0.518,
+      "effective_fps": 1932.1
+    }
+  ],
+  "compression": [
+    {
+      "resolution": "640x480",
+      "full_frame_bytes": 307200,
+      "dh_signal_bytes": 5788,
+      "compression_ratio": 53.1,
+      "reduction_pct": 98.12
+    },
+    {
+      "resolution": "1280x720",
+      "full_frame_bytes": 921600,
+      "dh_signal_bytes": 5788,
+      "compression_ratio": 159.2,
+      "reduction_pct": 99.37
+    },
+    {
+      "resolution": "1920x1080",
+      "full_frame_bytes": 2073600,
+      "dh_signal_bytes": 5788,
+      "compression_ratio": 358.3,
+      "reduction_pct": 99.72
+    },
+    {
+      "resolution": "3840x2160",
+      "full_frame_bytes": 8294400,
+      "dh_signal_bytes": 5788,
+      "compression_ratio": 1433.0,
+      "reduction_pct": 99.93
+    }
+  ]
+}
